@@ -1,7 +1,3 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/linux,python,visualstudiocode,vscode
-# Edit at https://www.toptal.com/developers/gitignore?templates=linux,python,visualstudiocode,vscode
-
 ### Linux ###
 *~
 
@@ -171,5 +167,3 @@ dmypy.json
 ### vscode ###
 !.vscode/settings.json
 !.vscode/extensions.json
-
-# End of https://www.toptal.com/developers/gitignore/api/linux,python,visualstudiocode,vscode
