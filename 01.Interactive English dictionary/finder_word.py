@@ -4,15 +4,13 @@
 Developed by adejonghm
 ----------
 
-
 """
 
-# Standard library imports
-import json
 from difflib import get_close_matches
+import json
 
 
-with open('dictionary.json') as file:
+with open('datasource/dictionary.json') as file:
     dictionary = json.load(file)
 
 
