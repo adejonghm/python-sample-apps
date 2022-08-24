@@ -17,7 +17,7 @@
 
 - Run the script:
 
-  `pyton mapping.py`
+  `python mapping.py`
 
 ### Author Info
 
