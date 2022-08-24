@@ -7,7 +7,7 @@
 
 ### Generate the Map
 
-- Install the Folunio library:
+- Install the Folium library:
   
   `pip install folium`
 
