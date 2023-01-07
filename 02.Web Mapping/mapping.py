@@ -40,17 +40,18 @@ if __name__ == "__main__":
     map = folium.Map(location=[38.58, -99.09],
                      zoom_start=5, tiles="OpenStreetMap")
 
-    fgv = folium.FeatureGroup(name="Volcanous")
-    for lt, ln, el in zip(lat, lon, elev):
-        iframe = folium.IFrame(html=html % str(el), width=170, height=90)
-        # fgv.add_child(folium.Marker(location=[lt, ln], popup=folium.Popup(iframe), icon=folium.Icon(color=color_icon(el))))
-        fgv.add_child(folium.CircleMarker(location=[lt, ln], popup=folium.Popup(iframe), radius=5, color=color_icon(el), fill=True, opacity=0.4, fill_opacity=0.7))
-    map.add_child(fgv)
-
     fgp = folium.FeatureGroup(name="World Population")
     fgp.add_child(folium.GeoJson(data=open('datasources/world.json', 'r', encoding='utf-8-sig').read(), style_function=lambda x: {
                   'fillColor': 'green' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
     map.add_child(fgp)
+
+    fgv = folium.FeatureGroup(name="Volcanous")
+    for lt, ln, el in zip(lat, lon, elev):
+        iframe = folium.IFrame(html=html % str(el), width=170, height=90)
+        # fgv.add_child(folium.Marker(location=[lt, ln], popup=folium.Popup(iframe), icon=folium.Icon(color=color_icon(el))))
+        fgv.add_child(folium.CircleMarker(location=[lt, ln], popup=folium.Popup(
+            iframe), radius=5, color=color_icon(el), fill=True, opacity=0.4, fill_opacity=0.7))
+    map.add_child(fgv)
 
     map.add_child(folium.LayerControl())
     map.save("demo_map.html")
