@@ -4,4 +4,4 @@
 
 ## Author Info
 
-Telegram: [adejonghm](https://t.me/adejonghm) | CodersRank: [adejonghm](https://profile.codersrank.io/user/adejonghm/)
+[LinkedIn](https://www.linkedin.com/in/adejonghm/) | [Telegram](https://t.me/adejonghm) | [CodersRank](https://profile.codersrank.io/user/adejonghm/)
