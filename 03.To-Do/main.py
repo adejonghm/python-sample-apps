@@ -10,7 +10,10 @@ Nov 10, 2022
 import time
 
 
-def set_toDos(toDos_arg: list, filepath="todo_list.db"):
+FILE = "todo_list.db"
+
+
+def set_toDos(toDos_arg: list, filepath=FILE):
     with open(filepath, 'w') as file:
         file.writelines(toDos_arg)
 
@@ -20,10 +23,11 @@ if __name__ == "__main__":
     print("It is", now)
 
     while True:
-        user_action = input("Enter add, show, edit, complete or exit: ")
+        print("Use one of the following commands [add, show, edit, complete or exit]")
+        user_action = input("Enter the command: ")
         user_action = user_action.strip()
 
-        with open("todo_list.db") as file:
+        with open(FILE) as file:
             toDos = file.readlines()
 
         if user_action.startswith('add'):
@@ -33,7 +37,7 @@ if __name__ == "__main__":
                 set_toDos(toDos)
 
             else:
-                print("*** Please, enter the item you want to add ***\n")
+                print("*** Type the ToDo item you want to ADD after the command. ***\n")
 
         elif user_action.startswith('show'):
             # new_toDos = [item.strip("\n") for item in toDos]
@@ -52,8 +56,7 @@ if __name__ == "__main__":
                 set_toDos(toDos)
 
             except ValueError:
-                print(
-                    "*** Please, enter the item number you want to edit after the command ***\n")
+                print("*** Type the item number you want to EDIT after the command. ***\n")
                 continue
 
         elif user_action.startswith('complete'):
@@ -68,21 +71,20 @@ if __name__ == "__main__":
                 set_toDos(toDos)
 
                 print(
-                    f"*** Item '{toDo_to_remove}' completed successfully ***\n")
+                    f"*** Item '{toDo_to_remove}' completed successfully. ***\n")
 
             except IndexError:
-                print("*** There is no item with that number ***")
+                print("*** There is no ITEM with that number. ***\n")
                 continue
 
             except ValueError:
-                print(
-                    "*** Please, enter the item number you want to compelte after the command ***\n")
+                print("*** Type the item number you want to COMPLETE after the command. ***\n")
                 continue
 
         elif user_action.startswith(('exit', 'quit')):
             break
 
         else:
-            print("*** This command is not valid ***\n")
+            print("*** Please enter a valid command. ***\n")
 
     print("Bye!")
