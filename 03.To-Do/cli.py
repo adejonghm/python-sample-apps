@@ -7,15 +7,11 @@ Developed by adejonghm
 Nov 10, 2022
 """
 
+# Standard library imports
 import time
 
-
-FILE = "todo_list.db"
-
-
-def set_toDos(toDos_arg: list, filepath=FILE):
-    with open(filepath, 'w') as file:
-        file.writelines(toDos_arg)
+# Third party imports
+import tdlib as td
 
 
 if __name__ == "__main__":
@@ -23,19 +19,19 @@ if __name__ == "__main__":
     print("It is", now)
 
     while True:
-        print("Use one of the following commands [add, show, edit, complete or exit]")
+        print(
+            "Use one of the following commands [add, show, edit, complete or exit]")
         user_action = input("Enter the command: ")
         user_action = user_action.strip()
 
-        with open(FILE) as file:
-            toDos = file.readlines()
+        toDos = td.read_toDos()
 
         if user_action.startswith('add'):
             item = user_action[4:]
             if item:
                 toDos.append(item.capitalize() + '\n')
-                set_toDos(toDos)
-
+                td.save_toDos(toDos)
+                print('*** New item has been added successfully! ***\n')
             else:
                 print("*** Type the ToDo item you want to ADD after the command. ***\n")
 
@@ -53,10 +49,13 @@ if __name__ == "__main__":
 
                 toDos[number - 1] = new_item.capitalize() + "\n"
 
-                set_toDos(toDos)
+                td.save_toDos(toDos)
+                print(
+                    f"*** Item {number} has been updated successfully! ***\n")
 
             except ValueError:
-                print("*** Type the item number you want to EDIT after the command. ***\n")
+                print(
+                    "*** Type the item number you want to EDIT after the command. ***\n")
                 continue
 
         elif user_action.startswith('complete'):
@@ -68,17 +67,18 @@ if __name__ == "__main__":
                 toDo_to_remove = toDos[index].strip('\n')
                 toDos.pop(index)
 
-                set_toDos(toDos)
+                td.save_toDos(toDos)
 
                 print(
-                    f"*** Item '{toDo_to_remove}' completed successfully. ***\n")
+                    f"*** Item '{toDo_to_remove}' has been completed successfully! ***\n")
 
             except IndexError:
                 print("*** There is no ITEM with that number. ***\n")
                 continue
 
             except ValueError:
-                print("*** Type the item number you want to COMPLETE after the command. ***\n")
+                print(
+                    "*** Type the item number you want to COMPLETE after the command. ***\n")
                 continue
 
         elif user_action.startswith(('exit', 'quit')):
