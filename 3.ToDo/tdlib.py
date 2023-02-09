@@ -7,16 +7,16 @@ Developed by adejonghm
 Jan 31, 2023
 """
 
-FILE = "todo_list.db"
+FILE_DB = "todo_list.db"
 
 
-def read_toDos(filepath=FILE):
-    with open(FILE) as file:
+def get_toDos(filepath=FILE_DB):
+    with open(FILE_DB) as file:
         todos_list = file.readlines()
     
     return todos_list
 
 
-def save_toDos(toDos_arg: list, filepath=FILE):
+def save_toDos(toDos_arg: list, filepath=FILE_DB):
     with open(filepath, 'w') as file:
         file.writelines(toDos_arg)
