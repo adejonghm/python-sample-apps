@@ -7,7 +7,7 @@ Developed by adejonghm
 Jan 31, 2023
 """
 
-FILE_DB = "todo_list.db"
+FILE_DB = "./database.db"
 
 
 def get_toDos(filepath=FILE_DB):
@@ -18,5 +18,5 @@ def get_toDos(filepath=FILE_DB):
 
 
 def save_toDos(toDos_arg: list, filepath=FILE_DB):
-    with open(filepath, 'w') as file:
+    with open(FILE_DB, 'w') as file:
         file.writelines(toDos_arg)
