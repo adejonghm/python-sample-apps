@@ -1,19 +1,27 @@
-# A To-Do App on the Command Line
+# A To-Do App 
 
 > 3rd App of the series belonging to the course *The Python Mega Course: Build 10 Real World Applications.*
 >
 > **Description**:
 > An application where you can create, edit, show, and delete, after completion, your To-Do tasks from the terminal.
 
-## How to use
+## Using in the Command Line
 
-To use this application, you only have to use one of the following commands:
+To use this App, you only have to use one of the following commands:
 
-- `show` --> "Show all the pending ToDo in a list"
-- `exit` --> "Close the Applications"
-- `add <ToDo item>`
-- `edit <ToDo item number>`
-- `compelte <ToDo item number>`
+- `show` --> "Show all the pending To-Do in a list."
+- `exit` --> "Close the App."
+- `add <ToDo item>` --> "Add the new To-Do."
+- `edit <ToDo item number>` --> "Edit a To-Do from the list."
+- `compelte <ToDo item number>` --> "Delete a To-Do from the list after complete."
+
+## Using the App with Graphical User Interface
+
+Run the following command
+
+```sh
+python ToDo-UI.py
+```
 
 ### Author Info
 
