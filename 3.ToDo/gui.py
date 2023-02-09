@@ -15,15 +15,15 @@ import tdlib as fn
 
 
 label_input = sg.Text('Type a To-Do')
-label_list = sg.Text('My To-Do list')
+label_list = sg.Text('My To-Do List')
 input_text = sg.InputText(key='item_to_add', tooltip='Enter the text')
 btn_add = sg.Button('Add', key='Add')
 btn_edit = sg.Button('Edit', key='Edit')
-btn_complete = sg.Button('Complete', key='Complete')
+btn_complete = sg.Button('Done', key='Complete')
 listbox = sg.Listbox(values=fn.get_toDos(), key='list_item',
                      enable_events=True, size=[51, 12])
                      
-layout = [[label_input], [input_text, btn_add], [label_list], [listbox], [btn_edit, btn_complete]]
+layout = [[label_input], [input_text, btn_add], [label_list], [listbox], [btn_complete, btn_edit]]
 window = sg.Window('To-Do List App', layout=layout, font=('Helvetica', 11))
 
 while True:
@@ -31,13 +31,17 @@ while True:
 
     match event:
         case "Add":
-            toDos = fn.get_toDos()
-            toDos.append(values['item_to_add'].capitalize() + '\n')
-            fn.save_toDos(toDos)
+            if values['item_to_add'] != '':
+                toDos = fn.get_toDos()
+                toDos.append(values['item_to_add'].capitalize() + '\n')
+                fn.save_toDos(toDos)
             
-            window['list_item'].update(values=toDos)
-            window['item_to_add'].update(value='')
+                window['list_item'].update(values=toDos)
+                window['item_to_add'].update(value='')
 
+            else:
+                sg.popup('Please, Enter the To-Do you want to add.', title='Warning!', keep_on_top=True)
+                
         case "Edit":
             try:
                 item_to_edit = values['list_item'][0]
@@ -52,7 +56,7 @@ while True:
                 window['item_to_add'].update(value='')
 
             except IndexError:
-                sg.popup('Please, select an item first.')
+                sg.popup('Please, select an item first.', title='Warning!', keep_on_top=True)
 
         case "Complete":
             try:
@@ -66,7 +70,7 @@ while True:
                 window['item_to_add'].update(value='')
 
             except IndexError:
-                sg.popup('Please, select an item first.')
+                sg.popup('Please, select an item first.', title='Warning!', keep_on_top=True)
 
         case "list_item":
             item_selected = values['list_item'][0].strip('\n')
