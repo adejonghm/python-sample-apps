@@ -38,11 +38,18 @@ while True:
 
     match event:
         case "extract":
-            filepath = elements['file']
-            folderpath = elements['folder']
-            zl.extract_files(filepath, folderpath)
+            if elements['file'] == "" or elements['folder'] == "":
+                sg.popup('Please, select the file or destination!', title='Warning!', keep_on_top=True)
 
-            window['success'].update(value="Extraction Completed!")
+            elif elements['file'].split('.')[-1] != 'zip':
+                sg.popup('Please, select a ZIP file', title='Warning!', keep_on_top=True)
+
+            else:
+                filepath = elements['file']
+                folderpath = elements['folder']
+                zl.extract_files(filepath, folderpath)
+
+                window['success'].update(value="Extraction Completed!")
     
         case sg.WIN_CLOSED:
             break
