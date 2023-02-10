@@ -38,11 +38,15 @@ while True:
 
     match event:
         case "compress":
-            filepaths = elements['files'].split(';')
-            folderpath = elements['folder']
-            zl.zip_files(filepaths, folderpath)
+            if elements['files'] == "" or elements['folder'] == "":
+                sg.popup('Please, select the files or destination!', title='Warning!', keep_on_top=True)
+
+            else:
+                filepaths = elements['files'].split(';')
+                folderpath = elements['folder']
+                zl.zip_files(filepaths, folderpath)
             
-            window['success'].update(value="Compression Completed!")
+                window['success'].update(value="Compression Completed!")
  
         case sg.WIN_CLOSED:
             break
