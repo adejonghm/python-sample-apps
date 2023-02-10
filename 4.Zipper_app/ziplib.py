@@ -12,7 +12,7 @@ import pathlib as pl
 
 
 def zip_files(filepath_arg, dest_folder_arg):
-    dest_path = pl.Path(dest_folder_arg, "zipped_python.zip")
+    dest_path = pl.Path(dest_folder_arg, "compressed_files.zip")
     with zf.ZipFile(dest_path, 'w') as zip:
         for filepath in filepath_arg:
             filepath = pl.Path(filepath)
