@@ -7,13 +7,9 @@
 
 ## Generate the Map
 
-- Install the Folium library:
+- Install Folium and Pandas libraries:
   
-  `pip install folium`
-
-- Install Pandas library:
-  
-  `pip install pandas`
+  `pip install folium pandas`
 
 - Run the script:
 
