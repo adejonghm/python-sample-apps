@@ -8,10 +8,16 @@ Jan 29, 2023
 """
 
 # Standard library imports
+import os
 
 # Third party imports
 import PySimpleGUI as sg
 import tdlib as fn
+
+
+if not os.path.exists('./database.db'):
+    with open('./database.db', 'w') as file:
+        pass
 
 
 label_input = sg.Text('Type a To-Do')
