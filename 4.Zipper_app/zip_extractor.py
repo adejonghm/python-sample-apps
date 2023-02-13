@@ -19,8 +19,8 @@ label_destination = sg.Text("Select the destination folder:")
 label_success = sg.Text(key='success', text_color='green')
 
 # Input Text
-input_files = sg.Input()
-input_destination = sg.Input()
+input_files = sg.Input(key='zipfile')
+input_destination = sg.Input(key='destination')
 
 # Buttons
 btn_files = sg.FileBrowse("Choose", key='file')
@@ -38,18 +38,21 @@ while True:
 
     match event:
         case "extract":
-            if elements['file'] == "" or elements['folder'] == "":
-                sg.popup('Please, select the file or destination!', title='Warning!', keep_on_top=True)
+            try:
+                if elements['file'].split('.')[-1] != 'zip':
+                    sg.popup('Please, select a ZIP file', title='Warning!', keep_on_top=True)
 
-            elif elements['file'].split('.')[-1] != 'zip':
-                sg.popup('Please, select a ZIP file', title='Warning!', keep_on_top=True)
+                else:
+                    filepath = elements['file']
+                    folderpath = elements['folder']
+                    zl.extract_files(filepath, folderpath)
 
-            else:
-                filepath = elements['file']
-                folderpath = elements['folder']
-                zl.extract_files(filepath, folderpath)
-
-                window['success'].update(value="Extraction Completed!")
+                    sg.popup('Extraction Completed!', title='Success!', keep_on_top=True)
+                    window['zipfile'].update(value="")
+                    window['destination'].update(value="")
+            
+            except FileNotFoundError:
+                sg.popup('Please, select a Zip file.', title='Warning!', keep_on_top=True)
     
         case sg.WIN_CLOSED:
             break
