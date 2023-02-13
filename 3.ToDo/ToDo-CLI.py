@@ -7,11 +7,11 @@ Developed by adejonghm
 Nov 10, 2022
 """
 
-# Standard library imports
+# Standard libraries imports
 import time
 
-# Third party imports
-import tdlib as td
+# Local libraries imports
+import tdlib as fn
 
 
 if __name__ == "__main__":
@@ -24,13 +24,13 @@ if __name__ == "__main__":
         user_action = input("Enter the command: ")
         user_action = user_action.strip()
 
-        toDos = td.get_toDos()
+        toDos = fn.get_toDos()
 
         if user_action.startswith('add'):
             item = user_action[4:]
             if item:
                 toDos.append(item.capitalize() + '\n')
-                td.save_toDos(toDos)
+                fn.save_toDos(toDos)
                 print('*** New item has been added successfully! ***\n')
             else:
                 print("*** Type the ToDo item you want to ADD after the command. ***\n")
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
                 toDos[number - 1] = new_item.capitalize() + "\n"
 
-                td.save_toDos(toDos)
+                fn.save_toDos(toDos)
                 print(
                     f"*** Item {number} has been updated successfully! ***\n")
 
@@ -67,7 +67,7 @@ if __name__ == "__main__":
                 toDo_to_remove = toDos[index].strip('\n')
                 toDos.pop(index)
 
-                td.save_toDos(toDos)
+                fn.save_toDos(toDos)
 
                 print(
                     f"*** Item '{toDo_to_remove}' has been completed successfully! ***\n")

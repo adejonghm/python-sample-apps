@@ -7,11 +7,14 @@ Developed by adejonghm
 Jan 29, 2023
 """
 
-# Standard library imports
+
+# Standard libraries imports
 import os
 
-# Third party imports
+# Third-party libraries imports
 import PySimpleGUI as sg
+
+# Local libraries imports
 import tdlib as fn
 
 
@@ -21,7 +24,7 @@ if not os.path.exists('./database.db'):
 
 
 label_input = sg.Text('Type a To-Do')
-label_list = sg.Text('My To-Do List')
+label_list = sg.Text('My To-Do GUI')
 input_text = sg.InputText(key='item_to_add', tooltip='Enter the text')
 btn_add = sg.Button('Add', key='Add')
 btn_edit = sg.Button('Edit', key='Edit')
