@@ -1,11 +1,20 @@
-# A To-Do App 
+# A To-Do App
 
 > 3rd App of the series belonging to the course *The Python Mega Course: Build 10 Real World Applications.*
 >
 > **Description**:
 > An application where you can create, edit, show, and delete, after completion, your To-Do tasks from the terminal.
 
+## Dependencies
+
+- PySimpleGUI
+- Streamlit
+
 ## Using in the Command Line
+
+```sh
+python ToDo-CLI.py
+```
 
 To use this App, you only have to use one of the following commands:
 
@@ -21,6 +30,12 @@ Run the following command
 
 ```sh
 python ToDo-UI.py
+```
+
+## Using the App with Web User Interface
+
+```sh
+streamlit run <script_name>.py
 ```
 
 ### Author Info
