@@ -1,0 +1,31 @@
+autopep8==2.0.1
+  - pycodestyle [required: >=2.10.0, installed: 2.10.0]
+folium==0.14.0
+  - branca [required: >=0.6.0, installed: 0.6.0]
+    - jinja2 [required: Any, installed: 3.1.2]
+      - MarkupSafe [required: >=2.0, installed: 2.1.2]
+  - jinja2 [required: >=2.9, installed: 3.1.2]
+    - MarkupSafe [required: >=2.0, installed: 2.1.2]
+  - numpy [required: Any, installed: 1.24.1]
+  - requests [required: Any, installed: 2.28.2]
+    - certifi [required: >=2017.4.17, installed: 2022.12.7]
+    - charset-normalizer [required: >=2,<4, installed: 3.0.1]
+    - idna [required: >=2.5,<4, installed: 3.4]
+    - urllib3 [required: >=1.21.1,<1.27, installed: 1.26.14]
+pandas==1.5.3
+  - numpy [required: >=1.21.0, installed: 1.24.1]
+  - numpy [required: >=1.23.2, installed: 1.24.1]
+  - python-dateutil [required: >=2.8.1, installed: 2.8.2]
+    - six [required: >=1.5, installed: 1.16.0]
+  - pytz [required: >=2020.1, installed: 2022.7.1]
+pylint==2.15.10
+  - astroid [required: >=2.12.13,<=2.14.0-dev0, installed: 2.13.3]
+    - lazy-object-proxy [required: >=1.4.0, installed: 1.9.0]
+    - wrapt [required: >=1.14,<2, installed: 1.14.1]
+  - dill [required: >=0.3.6, installed: 0.3.6]
+  - isort [required: >=4.2.5,<6, installed: 5.12.0]
+  - mccabe [required: >=0.6,<0.8, installed: 0.7.0]
+  - platformdirs [required: >=2.2.0, installed: 2.6.2]
+  - tomlkit [required: >=0.10.1, installed: 0.11.6]
+PySimpleGUI==4.60.4
+tomli==2.0.1
