@@ -7,20 +7,11 @@ Developed by adejonghm
 Jan 29, 2023
 """
 
-
-# Standard libraries imports
-import os
-
 # Third-party libraries imports
 import PySimpleGUI as sg
 
 # Local libraries imports
 import tdlib as fn
-
-
-if not os.path.exists('./database.db'):
-    with open('./database.db', 'w') as file:
-        pass
 
 
 label_input = sg.Text('Type a To-Do')
@@ -31,8 +22,9 @@ btn_edit = sg.Button('Edit', key='Edit')
 btn_complete = sg.Button('Done', key='Complete')
 listbox = sg.Listbox(values=fn.get_toDos(), key='list_item',
                      enable_events=True, size=[51, 12])
-                     
-layout = [[label_input], [input_text, btn_add], [label_list], [listbox], [btn_complete, btn_edit]]
+
+layout = [[label_input], [input_text, btn_add], [
+    label_list], [listbox], [btn_complete, btn_edit]]
 window = sg.Window('To-Do List App', layout=layout, font=('Helvetica', 11))
 
 while True:
@@ -44,13 +36,14 @@ while True:
                 toDos = fn.get_toDos()
                 toDos.append(values['item_to_add'].capitalize() + '\n')
                 fn.save_toDos(toDos)
-            
+
                 window['list_item'].update(values=toDos)
                 window['item_to_add'].update(value='')
 
             else:
-                sg.popup('Please, Enter the To-Do you want to add.', title='Warning!', keep_on_top=True)
-                
+                sg.popup('Please, Enter the To-Do you want to add.',
+                         title='Warning!', keep_on_top=True)
+
         case "Edit":
             try:
                 item_to_edit = values['list_item'][0]
@@ -65,7 +58,8 @@ while True:
                 window['item_to_add'].update(value='')
 
             except IndexError:
-                sg.popup('Please, select an item first.', title='Warning!', keep_on_top=True)
+                sg.popup('Please, select an item first.',
+                         title='Warning!', keep_on_top=True)
 
         case "Complete":
             try:
@@ -79,7 +73,8 @@ while True:
                 window['item_to_add'].update(value='')
 
             except IndexError:
-                sg.popup('Please, select an item first.', title='Warning!', keep_on_top=True)
+                sg.popup('Please, select an item first.',
+                         title='Warning!', keep_on_top=True)
 
         case "list_item":
             item_selected = values['list_item'][0].strip('\n')
