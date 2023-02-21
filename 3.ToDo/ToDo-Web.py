@@ -15,13 +15,13 @@ import streamlit as st
 # Local libraries imports
 import tdlib as fn
 
+
 toDos = fn.get_toDos()
 
 
 def add_new_item():
     todo = st.session_state['new_item'] + '\n'
     toDos.append(todo)
-
     fn.save_toDos(toDos)
 
 
@@ -36,5 +36,5 @@ for index, td in enumerate(toDos):
         del st.session_state[td]
         st.experimental_rerun()
 
-st.text_input("Enter the To-Do:", on_change=add_new_item,
-              placeholder="Type here...", key='new_item')
+st.text_input("Enter the To-Do:", key='new_item',
+              on_change=add_new_item, placeholder="Type here...")

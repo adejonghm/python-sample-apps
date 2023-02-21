@@ -7,8 +7,8 @@
 
 ## Dependencies
 
-- PySimpleGUI
-- Streamlit
+- PySimpleGUI v4.60.4
+- Streamlit v1.18.1
 
 ## Using in the Command Line
 
@@ -35,7 +35,7 @@ python ToDo-UI.py
 ## Using the App with Web User Interface
 
 ```sh
-streamlit run <script_name>.py
+streamlit run ToDo-Web.py
 ```
 
 ### Author Info
