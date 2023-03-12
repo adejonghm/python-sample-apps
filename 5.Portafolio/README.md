@@ -1,6 +1,6 @@
 # Portafolio
 
-> This is an example of a Portfolio web page.
+> A website built entirely in Python to showcase coding projects and Apps developed by Me
 
 ## Dependencies
 
