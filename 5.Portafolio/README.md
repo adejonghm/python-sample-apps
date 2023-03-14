@@ -11,3 +11,7 @@
 ```sh
 streamlit run home.py
 ```
+
+### Author Info
+
+[LinkedIn](https://www.linkedin.com/in/adejonghm/) | [Telegram](https://t.me/adejonghm) | [CodersRank](https://profile.codersrank.io/user/adejonghm/)
