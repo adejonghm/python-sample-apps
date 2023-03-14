@@ -4,7 +4,7 @@
 Developed by adejonghm
 ----------
 
-Mar 7, 2023
+March 7, 2023
 """
 
 # Standard libraries imports
@@ -15,11 +15,11 @@ import streamlit as st
 
 
 st.set_page_config(layout='wide')
-data = pd.read_csv("data.csv", sep=';')
+data = pd.read_csv("source/data.csv", sep=';')
 
 column1, column2 = st.columns(2)
 with column1:
-    st.image("./images/profile.jpg", width=300)
+    st.image("images/profile.jpg", width=300)
 
 with column2:
     content = """
@@ -35,7 +35,7 @@ with column3:
     for index, row in data[:10].iterrows():
         st.header(row['title'])
         st.write(row['description'])
-        st.image("./images/" + row['image'])
+        st.image("images/" + row['image'])
         st.write(f"[Source Code]({row['url']})")
 
 
@@ -43,7 +43,7 @@ with column4:
     for index, row in data[10:].iterrows():
         st.header(row['title'])
         st.write(row['description'])
-        st.image("./images/" + row['image'])
+        st.image("images/" + row['image'])
         st.write(f"[Source Code]({row['url']})")
 
 footer = """
