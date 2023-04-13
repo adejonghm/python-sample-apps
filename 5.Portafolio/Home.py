@@ -14,7 +14,7 @@ import pandas as pd
 import streamlit as st
 
 
-st.set_page_config(layout='wide')
+# st.set_page_config(layout='wide')
 data = pd.read_csv("source/data.csv", sep=';')
 
 column1, column2 = st.columns(2)

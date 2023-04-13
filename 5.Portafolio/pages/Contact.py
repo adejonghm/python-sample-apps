@@ -24,10 +24,13 @@ with st.form(key="contact_form"):
     topic = st.selectbox('What topic do you want to discuss?', data['topic'])
     raw_message = st.text_area("Your message")
     message = f"""\
-Subject: {user_name} has a {topic}.
+Subject: Someone contacted you with a {topic}.
 
 {raw_message}
-email: {user_email}
+
+---
+From: {user_name}
+Email: {user_email}
 """
     button = st.form_submit_button("Submit")
 
