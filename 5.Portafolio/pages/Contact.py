@@ -12,7 +12,7 @@ import pandas as pd
 import streamlit as st
 
 # Local libraries imports
-import email_lib as elib
+import sendMail as sm
 
 
 data = pd.read_csv("source/topics.csv")
@@ -35,5 +35,5 @@ Email: {user_email}
     button = st.form_submit_button("Submit")
 
     if button:
-        elib.send_email(message)
+        sm.send_email(message)
         st.info("Your message sent successfully!")
