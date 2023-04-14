@@ -13,14 +13,26 @@ April 14, 2023
 from fpdf import FPDF
 import pandas as pd
 
-dataFrame = pd.read_csv("./source/topics.csv")
-pdf = FPDF(orientation='P', format='A4', unit="mm")
 
-for index, row in dataFrame.iterrows():
-    pdf.add_page()
-    
-    pdf.set_font(family='Arial', style='B', size=14)
-    pdf.cell(w=0, h=12, txt=row["Topic"], ln=0, align="L")
-    pdf.line(10, 19, 200, 19)
+if __name__ == '__main__':
 
-pdf.output("template.pdf")
+    dataFrame = pd.read_csv("./source/topics.csv")
+    pdf = FPDF(orientation='P', format='A4', unit="mm")
+    pdf.set_auto_page_break(auto=False, margin=0)
+
+    for index, row in dataFrame.iterrows():
+        pdf.add_page()
+
+        # Set Header
+        pdf.set_font(family='Arial', style='B', size=14)
+        pdf.set_text_color(10, 10, 10)
+        pdf.cell(w=0, h=12, txt=row["Topic"], ln=0, align="L")
+        pdf.line(10, 19, 200, 19)
+
+        # Set Footer
+        pdf.ln(270)
+        pdf.set_font(family='Arial', style='B', size=9)
+        pdf.set_text_color(180, 180, 180)
+        pdf.cell(w=0, h=12, txt=row["Topic"], ln=0, align="R")
+
+    pdf.output("template.pdf")
