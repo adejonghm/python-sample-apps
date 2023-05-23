@@ -1,8 +1,11 @@
 # PDF
 
 > A series of applications to demonstrate working with PDF.
+>
 > 6.1 - A generator of blank PDF pages using topics from a CSV file that could be used as a template.
+>
 > 6.2 - An Excel file exporter.
+>
 > 6.3 -
 
 ## Dependencies
