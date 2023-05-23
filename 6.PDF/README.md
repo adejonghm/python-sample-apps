@@ -1,6 +1,9 @@
-# Portafolio
+# PDF
 
-> a
+> A series of applications to demonstrate working with PDF.
+> 6.1 - A generator of blank PDF pages using topics from a CSV file that could be used as a template.
+> 6.2 - An Excel file exporter.
+> 6.3 -
 
 ## Dependencies
 
@@ -8,10 +11,16 @@
 - Pandas
 - OpenPyXl
 
-## Using the App with Web User Interface
+## Executing the Template Generator
 
 ```sh
-python converter.py
+cd 6.1-Template_Generator/ && python generator.py
+```
+
+## Executing the Excel Exporter
+
+```sh
+cd 6.2-Excel_export/ && python exporter.py
 ```
 
 ### Author Info
