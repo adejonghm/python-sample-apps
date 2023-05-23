@@ -6,7 +6,7 @@
 >
 > 6.2 - An Excel file exporter.
 >
-> 6.3 -
+> 6.3 - A Txt files exporter.
 
 ## Dependencies
 
@@ -24,6 +24,12 @@ cd 6.1-Template_Generator/ && python generator.py
 
 ```sh
 cd 6.2-Excel_export/ && python exporter.py
+```
+
+## Executing the Txt Reader
+
+```sh
+cd 6.3-Txt_reader/ && python reader.py
 ```
 
 ### Author Info
