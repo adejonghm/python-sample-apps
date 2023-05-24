@@ -17,7 +17,7 @@ import pandas as pd
 
 if __name__ == '__main__':
     filepaths = glob.glob("./invoices/*.xlsx")
-    column_width = (35, 65, 40, 30, 25)
+    column_width = (35, 60, 40, 30, 25)
     height = 8
 
     # Loading Excel files
@@ -48,23 +48,24 @@ if __name__ == '__main__':
         columns = list(df.columns)
         
         # Add Table header
-        columns = [item.replace("_", " ").title() for item in columns]
+        columns_name = [item.replace("_", " ").title() for item in columns]
         length = len(columns)
         pdf.set_font(family='Times', size=12, style='B')
         for index in range(length):
             if index == length - 1:
-                pdf.cell(w=column_width[index], h=height, txt=columns[index], border=1, ln=1)
+                pdf.cell(w=column_width[index], h=height, txt=columns_name[index], border=1, ln=1)
             else:
-                pdf.cell(w=column_width[index], h=height, txt=columns[index], border=1)
+                pdf.cell(w=column_width[index], h=height, txt=columns_name[index], border=1)
 
         # Add rows
         pdf.set_font(family='Times', size=10)
         for _, row in df.iterrows():
-            pdf.cell(w=column_width[0], h=height, txt=str(row['product_id']), border=1)
-            pdf.cell(w=column_width[1], h=height, txt=str(row['product_name']), border=1)
-            pdf.cell(w=column_width[2], h=height, txt=str(row['amount_purchased']), border=1)
-            pdf.cell(w=column_width[3], h=height, txt=str(row['price_per_unit']), border=1)
-            pdf.cell(w=column_width[4], h=height, txt=str(row['total_price']), border=1, ln=1)
+            for index in range(length):
+                row_name = columns[index]
+                if index == length - 1:
+                    pdf.cell(w=column_width[index], h=height, txt=str(row[row_name]), border=1, ln=1)
+                else:
+                    pdf.cell(w=column_width[index], h=height, txt=str(row[row_name]), border=1)
 
         # Add total price.
         total_price = df['total_price'].sum()
