@@ -15,7 +15,7 @@ import ssl
 import smtplib
 
 
-def send_email(message):
+def send_email(message: str):
     """Function to send an email
 
     Args:
